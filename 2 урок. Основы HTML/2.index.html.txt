@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>это моя страница</title>
+</head>
+
+<body>
+    <h1>привет, меня зовут Раджана!</h1>
+    <h2>я рада приветствовать вас на этой странице!</h2>
+    <p>у меня началась новая глава в моей жизни!</p>
+    <img src="https://sun9-18.userapi.com/impg/YEJzIbmfPl3fxmOTFjkxYT69R7dmsWcSAR6PZQ/U8uSzOPPVI8.jpg?size=868x1080&quality=95&sign=91c2162c1de883932f4bd30d31cf66c0&type=albug" alt="Мое изображение">
+    <h2>пожелайте мне удачи!</h2>
+</body>
+
+</html>
