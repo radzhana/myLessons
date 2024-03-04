@@ -6,27 +6,32 @@
     <title>Document</title>
     <script>
         let pizza ={
-        name: 'gavayskaya',
+    name: 'gavayskaya',
         weight, g: 750,
         size, sm: 35,
         price, rub: 580,
         }
         let rolls ={
-        name: 'philadelphia',
+    name: 'philadelphia',
         weight, g: 280,
         quantity: 8,
         price, rub: 480,
         } 
         let burger ={
-        name: 'chickengurger',
+    name: 'chickengurger',
         weight, g: 370,
         price, rub: 410,
         }
         let soup={
-        name: 'tomYam',
+    name: 'tomYam',
         weigt, g: 350,
         price, rub: 410,
         }
+        let food =['gavayskaya','philadelphiya','chickenburger','tomYam'];
+        alert (food [0]); //'gavayskaya'
+        alert (food [1]); //'philadelphiya'
+        alert (food [2]); //'chickenburger'
+        alert (food [3]); //'tomYam'
     </script>
 </head>
 <body>
