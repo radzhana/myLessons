@@ -32,6 +32,8 @@
         alert (rolls [1]); //'philadelphiya'
         alert (burger [2]); //'chickenburger'
         alert (soup [3]); //'tomYam'
+        let food =['gavayskaya','philadelphiya','chickenburger','tomYam'];
+        alert (food.length); //4
     </script>
 </head>
 <body>
