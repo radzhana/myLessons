@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let pizza ={
+        name: 'gavayskaya',
+        weight, g: 750,
+        size, sm: 35,
+        price, rub: 580,
+        }
+        let rolls ={
+        name: 'philadelphia',
+        weight, g: 280,
+        quantity: 8,
+        price, rub: 480,
+        } 
+        let burger ={
+        name: 'chickengurger',
+        weight, g: 370,
+        price, rub: 410,
+        }
+        let soup={
+        name: 'tomYam',
+        weigt, g: 350,
+        price, rub: 410,
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
