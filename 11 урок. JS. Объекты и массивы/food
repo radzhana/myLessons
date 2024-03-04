@@ -27,11 +27,11 @@
         weigt, g: 350,
         price, rub: 410,
         }
-        let food =['gavayskaya','philadelphiya','chickenburger','tomYam'];
-        alert (food [0]); //'gavayskaya'
-        alert (food [1]); //'philadelphiya'
-        alert (food [2]); //'chickenburger'
-        alert (food [3]); //'tomYam'
+        let array =['gavayskaya','philadelphiya','chickenburger','tomYam'];
+        alert (pizza [0]); //'gavayskaya'
+        alert (rolls [1]); //'philadelphiya'
+        alert (burger [2]); //'chickenburger'
+        alert (soup [3]); //'tomYam'
     </script>
 </head>
 <body>
