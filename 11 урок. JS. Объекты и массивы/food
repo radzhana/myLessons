@@ -7,23 +7,27 @@
     <script>
         let pizza ={
     name: 'gavayskaya',
+        structure: 'тесто,'+' ветчина,'+' куриная грудка,'+' ананас консервированный,'+' моцарелла,'+' соус',
         weight, g: 750,
         size, sm: 35,
         price, rub: 580,
         }
         let rolls ={
     name: 'philadelphia',
+        structure: 'нори,'+' рис,'+' лосось,'+' огурец,'+' сыр',
         weight, g: 280,
         quantity: 8,
         price, rub: 480,
         } 
         let burger ={
     name: 'chickengurger',
+        structure: 'булочка Бриошь,'+' котлета стрипс куриная,'+' сыр чеддар,'+' лист салата,'+' помидор,'+' маринованные огурцы,'+' соус Коктейльный',
         weight, g: 370,
         price, rub: 410,
         }
         let soup={
     name: 'tomYam',
+        structure: 'рисовая лапша,'+' креветка,'+' шампиньоны,'+' помидоры черри,'+' лимон',
         weigt, g: 350,
         price, rub: 410,
         }
@@ -34,6 +38,7 @@
         alert (soup [3]); //'tomYam'
         let food =['gavayskaya','philadelphiya','chickenburger','tomYam'];
         alert (food.length); //4
+
     </script>
 </head>
 <body>
