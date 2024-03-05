@@ -5,45 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-    let pizza ={
-        name: 'gavayskaya',
-        structure: 'тесто,'+' ветчина,'+' куриная грудка,'+' ананас консервированный,'+' моцарелла,'+' соус',
-        weight, g: 750,
+    let dishes =[{
+        name: 'пицца',
+        ingredients: ['тесто,'+' ветчина,'+' куриная грудка,'+' ананас консервированный,'+' моцарелла,'+' соус'],
+        weight: 750,
         size: 35,
+        cookingTime: 20,
         price: 580,
-        }
-    let rolls ={
-        name: 'philadelphia',
-        structure: 'нори,'+' рис,'+' лосось,'+' огурец,'+' сыр',
-        weight, g: 280,
+        },
+        {
+        name: 'роллы',
+        ingredients: ['нори,'+' рис,'+' лосось,'+' огурец,'+' сыр'],
+        weight: 280,
         quantity: 8,
+        cookingTime: 20,
         price: 480,
-        } 
-    let burger ={
-        name: 'chickengurger',
-        structure: 'булочка Бриошь,'+' котлета стрипс куриная,'+' сыр чеддар,'+' лист салата,'+' помидор,'+' маринованные огурцы,'+' соус Коктейльный',
+        }, 
+        {
+        name: 'бургер',
+        ingredients: ['булочка Бриошь,'+' котлета стрипс куриная,'+' сыр чеддар,'+' лист салата,'+' помидор,'+' маринованные огурцы,'+' соус Коктейльный'],
         weight: 370,
+        cookingTime: 20,
         price: 410,
-        }
-    let soup={
-        name: 'tomYam',
-        structure: 'рисовая лапша,'+' креветка,'+' шампиньоны,'+' помидоры черри,'+' лимон',
+        },
+        {
+        name: 'том ям',
+        ingredients: ['рисовая лапша,'+' креветка,'+' шампиньоны,'+' помидоры черри,'+' лимон'],
         weigt: 350,
+        cookingTime: 20,
         price: 410,
-        }
-    let food =['gavayskaya','philadelphiya','chickenburger','tomYam'];
-        food.shift();
-        alert (food[0]);
-        //alert (pizza [0]); //'gavayskaya'
-       //alert (rolls [1]); //'philadelphiya'
-        //alert (burger [2]); //'chickenburger'
-        //alert (soup [3]); //'tomYam'
-    //food.pop();
-
-
-
-    
-
+        }]
+    console.log(dishes);
+    delete dishes[0];
+    console.log(dishes);
 
     </script>
 </head>
