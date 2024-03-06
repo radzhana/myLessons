@@ -5,40 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-    let dishes =[{
-        name: 'пицца',
+    let pizza ={
+        name: 'гавайская',
         ingredients: ['тесто,'+' ветчина,'+' куриная грудка,'+' ананас консервированный,'+' моцарелла,'+' соус'],
         weight: 750,
         size: 35,
         cookingTime: 20,
         price: 580,
-        },
-        {
-        name: 'роллы',
+        };
+    let rolls ={
+        name: 'филадельфия',
         ingredients: ['нори,'+' рис,'+' лосось,'+' огурец,'+' сыр'],
         weight: 280,
         quantity: 8,
         cookingTime: 20,
         price: 480,
-        }, 
-        {
-        name: 'бургер',
+        }; 
+    let burger ={
+        name: 'чикенбургер',
         ingredients: ['булочка Бриошь,'+' котлета стрипс куриная,'+' сыр чеддар,'+' лист салата,'+' помидор,'+' маринованные огурцы,'+' соус Коктейльный'],
         weight: 370,
         cookingTime: 20,
         price: 410,
-        },
-        {
+        };
+    let soup ={
         name: 'том ям',
         ingredients: ['рисовая лапша,'+' креветка,'+' шампиньоны,'+' помидоры черри,'+' лимон'],
         weigt: 350,
         cookingTime: 20,
         price: 410,
-        }]
-    console.log(dishes);
-    delete dishes[0];
-    console.log(dishes);
-    dishes.unshift(0);
+        }
+    let menu = [pizza, rolls, burger, soup];
+
+
 
 
     </script>
