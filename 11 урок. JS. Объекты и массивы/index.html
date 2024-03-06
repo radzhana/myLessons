@@ -37,8 +37,10 @@
         }
     let menu = [pizza, rolls, burger, soup];
     menu.shift();
+    menu.unshift(pizza)
+    console.log(menu);
     delete soup.ingredients[0];
-    console.log(soup);
+    
     
     
 
