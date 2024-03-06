@@ -36,10 +36,18 @@
         price: 410,
         }
     let menu = [pizza, rolls, burger, soup];
-    menu.shift();
-    menu.unshift(pizza)
+    menu.shift();//удалён объект
+    menu.unshift(pizza)//возвращен объект обратно
+    delete soup.ingredients[0];//удалена рисовая лапша из том яма
+    console.log(pizza.cookingTime+rolls.cookingTime+burger.cookingTime+soup.cookingTime);//общее время приготовления
+    console.log(pizza.price+rolls.price+burger.price+soup.price);//полученные деньги от продажи длюд
+    menu = [menu.pop()];//удалены все объекты, кроме одного
     console.log(menu);
-    delete soup.ingredients[0];
+    
+
+
+    
+
     
     
     
