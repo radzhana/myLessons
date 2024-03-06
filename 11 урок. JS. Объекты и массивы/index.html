@@ -7,7 +7,7 @@
     <script>
     let pizza ={
         name: 'гавайская',
-        ingredients: ['тесто,'+' ветчина,'+' куриная грудка,'+' ананас консервированный,'+' моцарелла,'+' соус'],
+        ingredients: ['тесто', 'ветчина', 'куриная грудка', 'ананас консервированный', 'моцарелла', 'соус'],
         weight: 750,
         size: 35,
         cookingTime: 20,
@@ -15,7 +15,7 @@
         };
     let rolls ={
         name: 'филадельфия',
-        ingredients: ['нори,'+' рис,'+' лосось,'+' огурец,'+' сыр'],
+        ingredients: ['нори', 'рис', 'лосось', 'огурец', 'сыр'],
         weight: 280,
         quantity: 8,
         cookingTime: 20,
@@ -23,24 +23,23 @@
         }; 
     let burger ={
         name: 'чикенбургер',
-        ingredients: ['булочка Бриошь,'+' котлета стрипс куриная,'+' сыр чеддар,'+' лист салата,'+' помидор,'+' маринованные огурцы,'+' соус Коктейльный'],
+        ingredients: ['булочка Бриошь', 'котлета стрипс куриная', 'сыр чеддер', 'лист салата', 'помидор', 'маринованные огурцы', 'соус Коктейльный'],
         weight: 370,
         cookingTime: 20,
         price: 410,
         };
     let soup ={
         name: 'том ям',
-        ingredients: ['рисовая лапша,'+' креветка,'+' шампиньоны,'+' помидоры черри,'+' лимон'],
-        weigt: 350,
+        ingredients: ['рисовая лапша', 'креветка,', 'шампиньоны', 'помидоры черри', 'лимон'],
+        weight: 350,
         cookingTime: 20,
         price: 410,
         }
-    let menu = ['pizza', 'rolls', 'burger', 'soup'];
+    let menu = [pizza, rolls, burger, soup];
     menu.shift();
-    alert (menu[0]);
-    menu.unshift('помидор')
-    alert (menu[0])
-    console.log(menu);
+    delete soup.ingredients[0];
+    console.log(soup);
+    
     
 
 
