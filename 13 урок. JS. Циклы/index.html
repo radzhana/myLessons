@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        for (
+        let i=2;
+        i<=10; 
+        i++
+        )
+        {
+            if(
+                i%2==0
+            )
+            {
+                alert(i);
+            }
+        }
+        for (let i=0; i<Infinity; i+=1){
+            if (i==5){
+                break;
+            }
+            console.log(i);
+        }
+    </script>
+    <script>
+        
+        let food =[
+            {name: 'гавайская',
+            price: 580,
+            cookingPrice: 405},
+            
+            {name: 'филадельфия',s
+            price: 480,
+            cookingPrice: 335}, 
+
+            {name: 'чикенбургер',
+            price: 415,
+            cookingPrice: 290},
+
+            {name: 'том ям',
+            price: 410,
+            cookingPrice: 285},
+            ]
+
+        for (let i=0; i<food.length; i++) {
+            const dish = food[i];
+            const profit = dish.price-dish.cookingPrice;
+            console.log(dish.price);
+            console.log(dish.cookingPrice);
+            console.log(`Прибыль ${i+1}: ${profit}`);
+        }
+            </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>
