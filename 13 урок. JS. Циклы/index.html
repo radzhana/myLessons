@@ -25,35 +25,86 @@
             console.log(i);
         }
     </script>
+
     <script>
         
         let food =[
-            {name: 'гавайская',
-            price: 580,
-            cookingPrice: 405},
-            
-            {name: 'филадельфия',s
-            price: 480,
-            cookingPrice: 335}, 
+            {
+        name: 'пицца гавайская',
+        ingredients: ['тесто', 'ветчина', 'куриная грудка', 'ананас консервированный', 'моцарелла', 'соус'],
+        weight: 750,
+        size: 35,
+        cookingTime: 20,
+        price: 580,
+        netCost: 175
+        },
+    {
+        name: 'ролл филадельфия',
+        ingredients: ['нори', 'рис', 'лосось', 'огурец', 'сыр'],
+        weight: 280,
+        quantity: 8,
+        cookingTime: 20,
+        price: 480,
+        netCost: 145
+        },
+    {
+        name: 'чикенбургер',
+        ingredients: ['булочка Бриошь', 'котлета стрипс куриная', 'сыр чеддер', 'лист салата', 'помидор', 'маринованные огурцы', 'соус коктейльный'],
+        weight: 370,
+        cookingTime: 20,
+        price: 415,
+        netCost: 125
+        },
+    {
+        name: 'том ям',
+        ingredients: ['рисовая лапша', 'креветка', 'шампиньоны', 'помидоры черри', 'лимон'],
+        weight: 350,
+        cookingTime: 20,
+        price: 410,
+        netCost: 125
+        },
+    ]
 
-            {name: 'чикенбургер',
-            price: 415,
-            cookingPrice: 290},
-
-            {name: 'том ям',
-            price: 410,
-            cookingPrice: 285},
-            ]
+    let ingredients = ['тесто', 'ветчина', 'куриная грудка', 'ананас консервированный', 'моцарелла', 'соус', 'нори', 'рис', 'лосось', 'огурец', 'сыр', 'булочка Бриошь', 'котлета стрипс куриная', 'сыр чеддер', 'лист салата', 'маринованные огурцы', 'соус коктейльный', 'рисовая лапша', 'креветка', 'шампиньоны', 'помидоры черри', 'лимон']
+    let ingredientCost = {
+        'тесто': 70,
+        'ветчина': 150,
+        'куриная грудка': 200,
+        'ананас консервированный': 100,
+        'моцарелла': 100,
+        'соус': 45,
+        'нори': 70,
+        'рис': 100,
+        'лосось': 250,
+        'огурец': 50,
+        'сыр': 180,
+        'булочка Бриошь': 40,
+        'котлета стрипс куриная': 90,
+        'сыр чеддер': 200,
+        'лист салата': 70, 
+        'помидор': 40,
+        'маринованные огурцы': 90,
+        'соус коктейльный': 50,
+        'рисовая лапша': 80,
+        'креветка': 250,
+        'шампиньоны': 140,
+        'помидоры черри': 140,
+        'лимон': 50,
+        }
+       
 
         for (let i=0; i<food.length; i++) {
-            const dish = food[i];
-            const profit = dish.price-dish.cookingPrice;
-            console.log(dish.price);
-            console.log(dish.cookingPrice);
-            console.log(`Прибыль ${i+1}: ${profit}`);
+            let dish = food[i];
+            let totalCost = 0;
+        
+        for (let j=0; j<dish.ingredients.length; j++) {
+            let ingredient = dish.ingredients[j];
+            let cost=ingredientCost[ingredient];
+            totalCost+=cost;
         }
-            </script>
-
+        console.log(`стоимость приготовления блюда "${dish.name}": ${totalCost}`);
+    }
+        </script>
 
 </head>
 <body>
