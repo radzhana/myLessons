@@ -4,27 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script>
-        for (
-        let i=2;
-        i<=10; 
-        i++
-        )
-        {
-            if(
-                i%2==0
-            )
-            {
-                alert(i);
-            }
-        }
-        for (let i=0; i<Infinity; i+=1){
-            if (i==5){
-                break;
-            }
-            console.log(i);
-        }
-    </script>
 
     <script>
         
@@ -94,6 +73,7 @@
        
 
         for (let i=0; i<food.length; i++) {
+
             let dish = food[i];
             let totalCost = 0;
         
@@ -101,9 +81,15 @@
             let ingredient = dish.ingredients[j];
             let cost=ingredientCost[ingredient];
             totalCost+=cost;
+
+
+
+            
         }
+        
         console.log(`стоимость приготовления блюда "${dish.name}": ${totalCost}`);
     }
+
         </script>
 
 </head>
