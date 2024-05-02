@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // Запрашиваем имя пользователя
+      let username = prompt("Введите имя пользователя", "");
+
+      // Задаем объект с парами логин-пароль
+      let users = {
+        admin: "root",
+        user: "123",
+      };
+
+      // Проверяем правильность пароля
+      if (users[username] && username) {
+        let password = prompt("Введите пароль", "");
+
+        if (password === users[username]) {
+          alert ("Вы вошли");
+        } else {
+          alert("Неправильный пароль");
+        }
+      } else {
+        alert("Такого пользователя не существует");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
