@@ -6,20 +6,6 @@
     <title>Document</title>
 
     <script>
-      function min_value(a, b) {
-        if (a < b) {
-          return `Мешньшее число это ${a}`;
-        } else {
-          return `Мешньшее число это ${b}`;
-        }
-      }
-
-      let a = Math.floor(Math.random() * 10);
-      console.log(`Ваше первое рандомное число: ${a}`);
-      let b = Math.floor(Math.random() * 10);
-      console.log(`Ваше второе рандомное число: ${b}`);
-      console.log(min_value(a, b));
-      
       let menu = [
         {
           name: "ПИЦЦА ГАВАЙСКАЯ",
@@ -149,8 +135,7 @@
         console.log(text);
         menuText = menuText + "\n" + text;
       }
-
-      function calculateCookingCost(ingredients) {
+      function cookingCost(ingredients) {
         let cookingCost = 0;
         for (let i = 0; i < ingredients.length; i++) {
           let ingredient = ingredients[i];
@@ -159,13 +144,11 @@
         return cookingCost;
       }
 
-      menu.forEach(dish => {
-        let cookingCost = calculateCookingCost(dish.ingredients);
-        let profit = dish.price - cookingCost;
-        dish.profit=profit;
+      menu.forEach((dish) => {
+        let netCost = cookingCost(dish.ingredients);
+        let profit = dish.price - netCost;
         console.log(`Доход от блюда ${dish.name}: ${profit}`);
       });
-      console.log(menu)
     </script>
   </head>
   <body></body>
