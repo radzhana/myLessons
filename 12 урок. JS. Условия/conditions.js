@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
+
         
         let capital = prompt('Какая столица Бурятии?');
     if (capital.toLowerCase() == 'улан-удэ') {
@@ -52,8 +46,3 @@
     else {
     alert ('Голова Ленина. Самая известная городская достопримечательность, отлитая из чистой бронзы. Это самое большое изваяние головы в мире, которое в 2015 году было занесено в Книгу рекордов России. Голова Ленина весит 42 т, ее высота -7,7 метров, ширина — 4,5 метра, высота вместе с постаментом — 14 метров.');
     }
-       </script>
-</head>
-<body>
-</body>
-</html>

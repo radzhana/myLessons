@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
+
     let pizza ={
         name: 'гавайская',
         ingredients: ['тесто', 'ветчина', 'куриная грудка', 'ананас консервированный', 'моцарелла', 'соус'],
@@ -50,9 +44,3 @@
     console.log(rolls.price-rolls.netCost);//прибыль от продажи роллов
     console.log(burger.price-burger.netCost);//прибыль от продажи бургера
     console.log(soup.price-soup.netCost);//прибыль от продажи супа
-
-    </script>
-</head>
-<body> 
-</body>
-</html>

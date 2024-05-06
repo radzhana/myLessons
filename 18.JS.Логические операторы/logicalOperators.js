@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
 
-    <script>
       let users = {
         admin: "root",
         user: "123",
@@ -22,7 +15,3 @@
       } else {
         alert("Такого пользователя не существует");
       }
-    </script>
-  </head>
-  <body></body>
-</html>

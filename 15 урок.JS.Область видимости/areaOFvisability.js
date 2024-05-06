@@ -1,51 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 
-    <script>
-        
-        let food =[
+        let menu =[
             {
-        name: 'пицца гавайская',
+        name: 'ПИЦЦА ГАВАЙСКАЯ',
         ingredients: ['тесто', 'ветчина', 'куриная грудка', 'ананас консервированный', 'моцарелла', 'соус'],
         weight: 750,
         size: 35,
         cookingTime: 20,
-        price: 580,
+        price: 880,
         netCost: 175
         },
     {
-        name: 'ролл филадельфия',
+        name: 'РОЛЛ ФИЛАДЕЛЬФИЯ',
         ingredients: ['нори', 'рис', 'лосось', 'огурец', 'сыр'],
         weight: 280,
         quantity: 8,
         cookingTime: 20,
-        price: 480,
+        price: 780,
         netCost: 145
         },
     {
-        name: 'чикенбургер',
+        name: 'ЧИКЕНБУРГЕР',
         ingredients: ['булочка Бриошь', 'котлета стрипс куриная', 'сыр чеддер', 'лист салата', 'помидор', 'маринованные огурцы', 'соус коктейльный'],
         weight: 370,
         cookingTime: 20,
-        price: 415,
+        price: 715,
         netCost: 125
         },
     {
-        name: 'том ям',
+        name: 'ТОМ ЯМ',
         ingredients: ['рисовая лапша', 'креветка', 'шампиньоны', 'помидоры черри', 'лимон'],
         weight: 350,
         cookingTime: 20,
-        price: 410,
+        price: 900,
         netCost: 125
         },
     ]
 
     let ingredients = ['тесто', 'ветчина', 'куриная грудка', 'ананас консервированный', 'моцарелла', 'соус', 'нори', 'рис', 'лосось', 'огурец', 'сыр', 'булочка Бриошь', 'котлета стрипс куриная', 'сыр чеддер', 'лист салата', 'маринованные огурцы', 'соус коктейльный', 'рисовая лапша', 'креветка', 'шампиньоны', 'помидоры черри', 'лимон']
-    let ingredientCost = {
+    let ingredientsPrice = {
         'тесто': 70,
         'ветчина': 150,
         'куриная грудка': 200,
@@ -71,29 +63,37 @@
         'лимон': 50,
         }
        
+        let menuText = '';
+        for (let i=0; i<menu.length; i++) {
 
-        for (let i=0; i<food.length; i++) {
-
-            let dish = food[i];
-            let totalCost = 0;
+            let dish = menu[i];
+            let totalProfit = 0;
+            let dishExpenses = 0;
         
-        for (let j=0; j<dish.ingredients.length; j++) {
-            let ingredient = dish.ingredients[j];
-            let cost=ingredientCost[ingredient];
-            totalCost+=cost;
-
-
-
-            
+        for (let f=0; f<dish.ingredients.length; f++) {
+            let ingredient = dish.ingredients[f];
+            dishExpenses += ingredientsPrice[ingredient];
         }
-        
-        console.log(`стоимость приготовления блюда "${dish.name}": ${totalCost}`);
+        totalProfit = dish.price - dishExpenses;
+        menu[i].profit = totalProfit;
+        let text = `Название: \n${dish.name}. \nСостав: \n-${dish.ingredients.join('\n-')} \nЦена: ${dish.price} руб.`
+        console.log('---------------------------------------')
+        console.log(text)
+        menuText = menuText + '\n' + text;
     }
-
-        </script>
-
-</head>
-<body>
+    //console.log('============================================')
     
-</body>
-</html>
+    function cookingCost(ingredients) {
+    let cookingCost = 0;
+    for (let i = 0; i < ingredients.length; i++) {
+        let ingredient = ingredients[i];
+        cookingCost += ingredientsPrice[ingredient] || 0;
+    }
+    return cookingCost;
+}
+
+menu.forEach(dish => {
+    let netCost = cookingCost(dish.ingredients);
+    let profit = dish.price - netCost;
+    console.log(`Доход от блюда ${dish.name}: ${profit}`);
+});
