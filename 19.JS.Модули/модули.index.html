@@ -5,7 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <script>
+    <script type="module" scr="main.js">
+      function min_value(a, b) {
+        if (a < b) {
+          return `Мешньшее число это ${a}`;
+        } else {
+          return `Мешньшее число это ${b}`;
+        }
+      }
+
+      let a = Math.floor(Math.random() * 10);
+      console.log(`Ваше первое рандомное число: ${a}`);
+      let b = Math.floor(Math.random() * 10);
+      console.log(`Ваше второе рандомное число: ${b}`);
+      console.log(min_value(a, b));
+      
       let menu = [
         {
           name: "ПИЦЦА ГАВАЙСКАЯ",
@@ -135,20 +149,18 @@
         console.log(text);
         menuText = menuText + "\n" + text;
       }
-      function cookingCost(ingredients) {
-        let cookingCost = 0;
-        for (let i = 0; i < ingredients.length; i++) {
-          let ingredient = ingredients[i];
-          cookingCost += ingredientsPrice[ingredient] || 0;
-        }
-        return cookingCost;
-      }
+      //импорт функции из модуля
+      import {calculateCookingCost} from './myModule.js';
+      //вызов функции
+      calculateCookingCost()
 
-      menu.forEach((dish) => {
-        let netCost = cookingCost(dish.ingredients);
-        let profit = dish.price - netCost;
+      menu.forEach(dish => {
+        let cookingCost = calculateCookingCost(dish.ingredients);
+        let profit = dish.price - cookingCost;
+        dish.profit=profit;
         console.log(`Доход от блюда ${dish.name}: ${profit}`);
       });
+      console.log(menu)
     </script>
   </head>
   <body></body>
