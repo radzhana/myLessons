@@ -97,3 +97,4 @@ menu.forEach(dish => {
     let profit = dish.price - netCost;
     console.log(`Доход от блюда ${dish.name}: ${profit}`);
 });
+console.log (menuText)
