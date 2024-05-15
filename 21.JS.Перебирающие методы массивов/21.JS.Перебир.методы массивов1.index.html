@@ -4,22 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
     <script>
-      function min_value(a, b) {
-        if (a < b) {
-          return `Мешньшее число это ${a}`;
-        } else {
-          return `Мешньшее число это ${b}`;
-        }
-      }
-
-      let a = Math.floor(Math.random() * 10);
-      console.log(`Ваше первое рандомное число: ${a}`);
-      let b = Math.floor(Math.random() * 10);
-      console.log(`Ваше второе рандомное число: ${b}`);
-      console.log(min_value(a, b));
-      
+     
+      // Меню и цены ингредиентов
       let menu = [
         {
           name: "ПИЦЦА ГАВАЙСКАЯ",
@@ -127,45 +114,57 @@
         "помидоры черри": 140,
         лимон: 50,
       };
-
-      let menuText = "";
-      for (let i = 0; i < menu.length; i++) {
-        let dish = menu[i];
-        let totalProfit = 0;
-        let dishExpenses = 0;
-
-        for (let f = 0; f < dish.ingredients.length; f++) {
-          let ingredient = dish.ingredients[f];
-          dishExpenses += ingredientsPrice[ingredient];
-        }
-        totalProfit = dish.price - dishExpenses;
-        menu[i].profit = totalProfit;
-        let text = `Название: \n${
-          dish.name
-        }. \nСостав: \n-${dish.ingredients.join("\n-")} \nЦена: ${
-          dish.price
-        } руб.`;
-        console.log("---------------------------------------");
-        console.log(text);
-        menuText = menuText + "\n" + text;
+       // Функция для расчета себестоимости блюда
+       function calculateDishNetCost(dish, ingredientsPrice) {
+        return dish.ingredients.reduce((totalCost, ingredient) => {
+          return totalCost + (ingredientsPrice[ingredient] || 0);
+        }, 0);
       }
-
-      function calculateCookingCost(ingredients) {
-        let cookingCost = 0;
-        for (let i = 0; i < ingredients.length; i++) {
-          let ingredient = ingredients[i];
-          cookingCost += ingredientsPrice[ingredient] || 0;
-        }
-        return cookingCost;
-      }
-
-      menu.forEach(dish => {
-        let cookingCost = calculateCookingCost(dish.ingredients);
-        let profit = dish.price - cookingCost;
-        dish.profit=profit;
-        console.log(`Доход от блюда ${dish.name}: ${profit}`);
+      // Расчет себестоимости для каждого блюда в меню
+      menu.forEach((dish) => {
+        const netCost = calculateDishNetCost(dish, ingredientsPrice);
+        console.log('Себестоимость блюда "${dish.name}": ${netCost.toFixed(2)} руб.'
+        );
       });
-      console.log(menu)
+      // Использование map для создания нового массива с названиями и стоимостью блюд
+      let menuPrices = menu.map((dish) => {
+        return { name: dish.name, price: dish.price };
+      });
+      console.log(menuPrices);
+      // Функция для проверки на вегетарианское блюдо
+      function isVegetarianDish(dish) {
+        return !dish.ingredients.some((ingredient) =>
+          nonVegetarianIngredients.includes(ingredient)
+        );
+      }
+      // Проверяем, есть ли хоть одно вегетарианское блюдо в меню
+      let hasVegetarianDish = menu.some(isVegetarianDish);
+
+      console.log(
+        'В меню ${hasVegetarianDish "есть" "нет"} вегетарианское блюдо.'
+      );
+
+      let nonVegetarianIngredients = [
+        "ветчина",
+        "куриная грудка",
+        "лосось",
+        "котлета стрипс куриная",
+        "креветка",
+      ];
+
+      // Функция для проверки блюда на отсутствие ингредиентов животного происхождения
+      function isVegetarianDish(dish) {
+        return !dish.ingredients.some((ingredient) =>
+          nonVegetarianIngredients.includes(ingredient)
+        );
+      }
+
+      // Проверяем, все ли блюда в меню вегетарианские
+      let isMenuFullyVegetarian = menu.every(isVegetarianDish);
+
+      console.log(
+        'Меню ${isMenuFullyVegetarian ? "полностью" : "не"} вегетарианское.'
+      );
     </script>
   </head>
   <body></body>

@@ -4,25 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
-    <script type="module" scr="myModule.js">
-      function min_value(a, b) {
-        if (a < b) {
-          return `Мешньшее число это ${a}`;
-        } else {
-          return `Мешньшее число это ${b}`;
-        }
-      }
-
-      let a = Math.floor(Math.random() * 10);
-      console.log(`Ваше первое рандомное число: ${a}`);
-      let b = Math.floor(Math.random() * 10);
-      console.log(`Ваше второе рандомное число: ${b}`);
-      console.log(min_value(a, b));
-      
-      let menu = [
+    <script>
+      let food = [
         {
-          name: "ПИЦЦА ГАВАЙСКАЯ",
+          name: "пицца гавайская",
           ingredients: [
             "тесто",
             "ветчина",
@@ -34,20 +19,20 @@
           weight: 750,
           size: 35,
           cookingTime: 20,
-          price: 880,
+          price: 580,
           netCost: 175,
         },
         {
-          name: "РОЛЛ ФИЛАДЕЛЬФИЯ",
+          name: "ролл филадельфия",
           ingredients: ["нори", "рис", "лосось", "огурец", "сыр"],
           weight: 280,
           quantity: 8,
           cookingTime: 20,
-          price: 780,
+          price: 480,
           netCost: 145,
         },
         {
-          name: "ЧИКЕНБУРГЕР",
+          name: "чикенбургер",
           ingredients: [
             "булочка Бриошь",
             "котлета стрипс куриная",
@@ -59,11 +44,11 @@
           ],
           weight: 370,
           cookingTime: 20,
-          price: 715,
+          price: 415,
           netCost: 125,
         },
         {
-          name: "ТОМ ЯМ",
+          name: "том ям",
           ingredients: [
             "рисовая лапша",
             "креветка",
@@ -73,7 +58,7 @@
           ],
           weight: 350,
           cookingTime: 20,
-          price: 900,
+          price: 410,
           netCost: 125,
         },
       ];
@@ -102,7 +87,7 @@
         "помидоры черри",
         "лимон",
       ];
-      let ingredientsPrice = {
+      let ingredientCost = {
         тесто: 70,
         ветчина: 150,
         "куриная грудка": 200,
@@ -128,39 +113,20 @@
         лимон: 50,
       };
 
-      let menuText = "";
-      for (let i = 0; i < menu.length; i++) {
-        let dish = menu[i];
-        let totalProfit = 0;
-        let dishExpenses = 0;
+      for (let i = 0; i < food.length; i++) {
+        let dish = food[i];
+        let totalCost = 0;
 
-        for (let f = 0; f < dish.ingredients.length; f++) {
-          let ingredient = dish.ingredients[f];
-          dishExpenses += ingredientsPrice[ingredient];
+        for (let j = 0; j < dish.ingredients.length; j++) {
+          let ingredient = dish.ingredients[j];
+          let cost = ingredientCost[ingredient];
+          totalCost += cost;
         }
-        totalProfit = dish.price - dishExpenses;
-        menu[i].profit = totalProfit;
-        let text = `Название: \n${
-          dish.name
-        }. \nСостав: \n-${dish.ingredients.join("\n-")} \nЦена: ${
-          dish.price
-        } руб.`;
-        console.log("---------------------------------------");
-        console.log(text);
-        menuText = menuText + "\n" + text;
-      }
-      //импорт функции из модуля
-      import {calculateCookingCost} from './myModule.js';
-      //вызов функции
-      calculateCookingCost()
 
-      menu.forEach(dish => {
-        let cookingCost = calculateCookingCost(dish.ingredients);
-        let profit = dish.price - cookingCost;
-        dish.profit=profit;
-        console.log(`Доход от блюда ${dish.name}: ${profit}`);
-      });
-      console.log(menu)
+        console.log(
+          `стоимость приготовления блюда "${dish.name}": ${totalCost}`
+        );
+      }
     </script>
   </head>
   <body></body>
