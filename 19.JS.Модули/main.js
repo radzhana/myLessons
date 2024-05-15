@@ -1,4 +1,3 @@
- //импорт ф-ии из модуля
- import {calculateCookingCost} from './myModule.js';
- //вызов ф-ии
- calculateCookingCost()
+//импорт
+import {min_value, calculateCookingCost} from "./function.js";
+console.log(min_value, calculateCookingCost);
