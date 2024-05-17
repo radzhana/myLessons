@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
-     
       // Меню и цены ингредиентов
       let menu = [
         {
@@ -22,7 +21,6 @@
           size: 35,
           cookingTime: 20,
           price: 880,
-          netCost: 175,
         },
         {
           name: "РОЛЛ ФИЛАДЕЛЬФИЯ",
@@ -31,7 +29,6 @@
           quantity: 8,
           cookingTime: 20,
           price: 780,
-          netCost: 145,
         },
         {
           name: "ЧИКЕНБУРГЕР",
@@ -47,7 +44,6 @@
           weight: 370,
           cookingTime: 20,
           price: 715,
-          netCost: 125,
         },
         {
           name: "ТОМ ЯМ",
@@ -61,7 +57,6 @@
           weight: 350,
           cookingTime: 20,
           price: 900,
-          netCost: 125,
         },
       ];
 
@@ -114,57 +109,79 @@
         "помидоры черри": 140,
         лимон: 50,
       };
-       // Функция для расчета себестоимости блюда
-       function calculateDishNetCost(dish, ingredientsPrice) {
-        return dish.ingredients.reduce((totalCost, ingredient) => {
-          return totalCost + (ingredientsPrice[ingredient] || 0);
+      //задание 1. Перепишите цикл, который считает себестоимость блюда из прошлых заданий на функцию, которая использует `reduce`
+      function calculateNetCost(ingredients, ingredientsPrices) {
+        return ingredients.reduce((totalCost, ingredient) => {
+          return totalCost + (ingredientsPrices[ingredient] || 0);
         }, 0);
       }
-      // Расчет себестоимости для каждого блюда в меню
       menu.forEach((dish) => {
-        const netCost = calculateDishNetCost(dish, ingredientsPrice);
-        console.log('Себестоимость блюда "${dish.name}": ${netCost.toFixed(2)} руб.'
-        );
+        dish.netCost = calculateNetCost(dish.ingredients, ingredientsPrice);
       });
-      // Использование map для создания нового массива с названиями и стоимостью блюд
-      let menuPrices = menu.map((dish) => {
+      console.log(menu);
+
+      //задание 2. Используйте `map` , чтобы получить массив с объектами в которых содержится только название и стоимость каждого блюда
+      let menuWithPrices = menu.map((dish) => {
         return { name: dish.name, price: dish.price };
       });
-      console.log(menuPrices);
-      // Функция для проверки на вегетарианское блюдо
-      function isVegetarianDish(dish) {
-        return !dish.ingredients.some((ingredient) =>
-          nonVegetarianIngredients.includes(ingredient)
-        );
-      }
-      // Проверяем, есть ли хоть одно вегетарианское блюдо в меню
-      let hasVegetarianDish = menu.some(isVegetarianDish);
+      console.log(menuWithPrices);
 
-      console.log(
-        'В меню ${hasVegetarianDish "есть" "нет"} вегетарианское блюдо.'
-      );
-
-      let nonVegetarianIngredients = [
+      //задание 3. Определите, есть ли в меню хоть одно вегетарианское блюдо, используя `some`
+      let notVegetarianIngredients = [
         "ветчина",
         "куриная грудка",
         "лосось",
         "котлета стрипс куриная",
         "креветка",
       ];
+      let hasVegetarianDish = menu.some((dish) => {
+        return !dish.ingredients.some((ingredient) =>
+          notVegetarianIngredients.includes(ingredient)
+        );
+      });
+      console.log(
+        `В меню ${hasVegetarianDish ? "есть" : "нет"} вегетарианского блюда`
+      );
 
-      // Функция для проверки блюда на отсутствие ингредиентов животного происхождения
+      //задание 4. Определите, полностью ли у вас вегетарианское меню с помощью `every`
+      let notVegIngredients = [
+        "ветчина",
+        "куриная грудка",
+        "лосось",
+        "котлета стрипс куриная",
+        "креветка",
+      ];
       function isVegetarianDish(dish) {
         return !dish.ingredients.some((ingredient) =>
-          nonVegetarianIngredients.includes(ingredient)
+          notVegetarianIngredients.includes(ingredient)
         );
       }
-
       // Проверяем, все ли блюда в меню вегетарианские
       let isMenuFullyVegetarian = menu.every(isVegetarianDish);
-
       console.log(
-        'Меню ${isMenuFullyVegetarian ? "полностью" : "не"} вегетарианское.'
+        `Меню ${isMenuFullyVegetarian ? "полностью" : "не"} вегетарианское`
       );
+
+      //задание 5. Создайте массив с вегетарианскими блюдами с помощью filter
+      {
+        let notVegetarianIngredients = [
+          "ветчина",
+          "куриная грудка",
+          "лосось",
+          "котлета стрипс куриная",
+          "креветка",
+        ];
+        // Функция проверяет, является ли блюдо вегетарианским
+        function isVegetarianDish(dish) {
+          return !dish.ingredients.some((ingredient) =>
+            notVegetarianIngredients.includes(ingredient)
+          );
+        }
+        // Создаём массив вегетарианских блюд
+        let vegetarianMenu = menu.filter(isVegetarianDish);
+
+        console.log(vegetarianMenu);
+      }
     </script>
   </head>
   <body></body>
