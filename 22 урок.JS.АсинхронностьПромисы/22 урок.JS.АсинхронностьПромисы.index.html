@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script>
+  async function main() {
+        try {
+          const menuResponse = await fetch("menu.json");
+          const menu = await menuResponse.json();
+          console.log(menu);
+        } catch (error) {
+          console.log("error in menu.json request");
+          alert(error);
+          }
+
+        try{ 
+          const pricesResponse = await fetch("ingredient-prices.json");
+          const ingredientPrices = await pricesResponse.json();
+          console.log(ingredientPrices);
+        } catch (error) {
+          console.log("error in ingredient-prices.json request");
+          alert(error);
+        }
+      }
+
+
+      main();
+      console.log("last line in file");
+
+
+</script>
+<body>
+  
+</body>
+</html>
+    
+
