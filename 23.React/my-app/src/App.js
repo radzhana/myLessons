@@ -1,7 +1,9 @@
-import logo from "./logo.svg";
+import { useState } from "react";
 import "./App.css";
 import { Button } from "./components/Button";
 function App() {
+  const [cart, setCart] = useState([]);
+  const cartSum = cart.reduce((acc, item) => acc + item.price, 0);
   const menu = [
     {
       name: "Пицца Гавайская",
@@ -38,34 +40,67 @@ function App() {
 
   return (
     <div className="App">
+      <div>
+        <h2>Корзина:</h2>
+        {cart.length > 0 ? (
+          <>
+            <ul>
+              {cart.map((item) => (
+                <li>
+                  {item.name} - {item.price} руб
+                </li>
+              ))}
+            </ul>
+            <div>Итого: {cartSum} руб</div>
+          </>
+        ) : (
+          <div>В корзине ничего нет</div>
+        )}
+      </div>
       <h1>"Восточная Сказка"</h1>
       <div className="menu">
         {menu.map(function (item) {
           return (
-            <div className="card">
+            <div className="card" key={item.name}>
               <img src={item.image} alt={item.name} />
               <h2>{item.name}</h2>
+              <div>Цена: {item.price} руб</div>
+              <button
+                style={{
+                  width: "40%",
+                  padding: "10px",
+                  borderRadius: "12px",
+                  
+                }}
+                onClick={() => {
+                  setCart([...cart, item]);
+                }}
+              >
+                В корзину
+              </button>
             </div>
           );
         })}
       </div>
-      <Button text="Оформить заказ" 
-      style={{
-        backgroundColor: "grey",
-        borderRadius: 12,
-        fontSize: 20,
-        width: 250,
-        marginRight: 10,
-        marginTop: 20,
-        marginBottom: 20,
-      }}
+      <Button
+        text="Оформить заказ"
+        style={{
+          backgroundColor: "grey",
+          borderRadius: 12,
+          fontSize: 20,
+          width: 250,
+          marginRight: 10,
+          marginTop: 20,
+          marginBottom: 20,
+        }}
       />
-      <Button text="Корзина"
+      <Button
+        text="Корзина"
         style={{
           backgroundColor: "green",
           borderRadius: 12,
           fontSize: 20,
-          width: 250
+          width: 250,
         }}
       />
     </div>
